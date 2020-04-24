@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, ListGroup, Button, Col, Row } from "react-bootstrap";
+import { Card, ListGroup, Button, Col, Row, Alert } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 function TapItem(props) {
@@ -10,12 +10,17 @@ function TapItem(props) {
   function onBeerTitleClick() {
     props.onShowBeerDetail(props.id);
   }
+  let stock;
+  if (props.pints <= 0) {
+    stock = <Alert variant="danger">OUT OF STOCK</Alert>;
+  }
 
   return (
     <Card>
       <Card.Body>
         <Card.Title onClick={onBeerTitleClick}>
-          [{props.count + 1}] {props.beer} by {props.brewery}{" "}
+          [{props.count + 1}] {props.beer} by {props.brewery}
+          {stock}
         </Card.Title>
         <Card.Text>
           <Row>
