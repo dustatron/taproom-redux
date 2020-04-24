@@ -20,7 +20,7 @@ class App extends React.Component {
         {
           beer: "Dirty Dan Ale",
           brewery: "Mnt Brewery",
-          price: 4,
+          price: 3,
           aContent: 9,
           pints: 4,
           id: "1",
@@ -38,7 +38,7 @@ class App extends React.Component {
         {
           beer: "Golden Girls Pale Ale",
           brewery: "St. Olaf Brewery",
-          price: 4,
+          price: 10,
           aContent: 2,
           pints: 124,
           id: "3",
