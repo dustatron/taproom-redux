@@ -19,7 +19,7 @@ class App extends React.Component {
       toolView: 0,
       kegs: [
         {
-          beer: "Dirty Dan Ale",
+          beer: "Dirty Dan's Pale Ale",
           brewery: "Mnt Brewery",
           price: 3,
           aContent: 9,
@@ -28,11 +28,11 @@ class App extends React.Component {
           createAt: 1587762467285
         },
         {
-          beer: "Cream Ale",
+          beer: "Real DeadMan's Ale",
           brewery: "Pelican Brewery",
           price: 7,
           aContent: 7,
-          pints: 10,
+          pints: 11,
           id: "2",
           createAt: 1587762429777
         },
@@ -44,6 +44,15 @@ class App extends React.Component {
           pints: 124,
           id: "3",
           createAt: 1587762424204
+        },
+        {
+          beer: "Hazy Jerry's IPA",
+          brewery: "Under the Bridge Brewery",
+          price: 5,
+          aContent: 9,
+          pints: 124,
+          id: "4",
+          createAt: 1587768759678
         }
       ]
     };

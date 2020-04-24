@@ -17,7 +17,7 @@ function TapItem(props) {
   let priceColor;
 
   //Alert Checks
-  if (props.pints < 10 && props.pints > 0) {
+  if (props.pints < 11 && props.pints > 0) {
     stock = <Alert variant="warning">Almost Empty</Alert>;
   } else if (props.pints <= 0) {
     stock = <Alert variant="danger">OUT OF STOCK</Alert>;

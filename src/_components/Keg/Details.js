@@ -26,7 +26,7 @@ function KegDetails(props) {
             <ListGroup.Item>Price: ${props.keg.price}</ListGroup.Item>
             <ListGroup.Item>Alcohol Content: {props.keg.aContent}%</ListGroup.Item>
             <ListGroup.Item>Pints Remaining: {props.keg.pints}</ListGroup.Item>
-            <ListGroup.Item>Created at: {props.keg.createAt}</ListGroup.Item>
+            <ListGroup.Item>Created at: {new Date(props.keg.createAt).toLocaleString()}</ListGroup.Item>
             <ListGroup.Item>SKU: {props.keg.id}</ListGroup.Item>
           </ListGroup>
           <Button className="btn-block top-margin--med" variant="warning" onClick={handleEditClick}>
