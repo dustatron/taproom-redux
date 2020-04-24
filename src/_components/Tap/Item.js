@@ -17,9 +17,9 @@ function TapItem(props) {
         <Card.Title onClick={onBeerTitleClick}>
           [{props.count + 1}] {props.beer} by {props.brewery}{" "}
         </Card.Title>
-        <Card.Text onClick={onBeerTitleClick}>
+        <Card.Text>
           <Row>
-            <Col md={12} lg={8}>
+            <Col md={12} lg={8} onClick={onBeerTitleClick}>
               <ListGroup horizontal>
                 <ListGroup.Item> ${props.price}</ListGroup.Item>
                 <ListGroup.Item>{props.aContent}% ac </ListGroup.Item>

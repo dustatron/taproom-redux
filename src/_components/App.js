@@ -15,8 +15,8 @@ class App extends React.Component {
       currentKeg: {},
       toolView: 0,
       kegs: [
-        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 124, id: "1" },
-        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 124, id: "2" },
+        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 4, id: "1" },
+        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 10, id: "2" },
         { beer: "Golden Girls Pale Ale", brewery: "St. Olaf Brewery", price: 4, aContent: 2, pints: 124, id: "3" }
       ]
     };
@@ -33,8 +33,10 @@ class App extends React.Component {
 
   handleMinuPint = (index) => {
     const allKegs = this.state.kegs;
-    allKegs[index].pints -= 1;
-    this.setState({ kegs: allKegs });
+    if (allKegs[index].pints > 0) {
+      allKegs[index].pints -= 1;
+      this.setState({ kegs: allKegs });
+    }
   };
 
   handleNewKeg = (newKeg) => {
