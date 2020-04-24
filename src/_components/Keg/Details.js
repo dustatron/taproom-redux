@@ -3,6 +3,10 @@ import { Card, ListGroup, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 function KegDetails(props) {
+  function handleAddNewKegClick() {
+    props.onAddKegClick();
+  }
+
   return (
     <div className="KegDetails">
       <h1 className="text-center"> Keg Details </h1>
@@ -17,12 +21,13 @@ function KegDetails(props) {
             <ListGroup.Item>{props.keg.id}</ListGroup.Item>
           </ListGroup>
           <Button className="btn-block" variant="warning">
-            {" "}
-            Edit{" "}
+            Edit
           </Button>
           <Button className="btn-block" variant="success">
-            {" "}
-            Okay{" "}
+            Okay
+          </Button>
+          <Button onClick={handleAddNewKegClick} className="btn-block" variant="secondary">
+            Add New Keg
           </Button>
         </Card.Body>
       </Card>
@@ -33,5 +38,6 @@ function KegDetails(props) {
 export default KegDetails;
 
 KegDetails.propTypes = {
-  key: PropTypes.object
+  keg: PropTypes.object,
+  onAddKegClick: PropTypes.func
 };
