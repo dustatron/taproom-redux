@@ -9,6 +9,8 @@ This app will show all the kegs available in a tap room and allow a user to up u
 
 ### [Link to working demo](https://5ea36bf9a4028d1f5a38c2b4--mccords-taproom-react.netlify.app/)
 
+![Wireframe / Node mockup](src/_img/mockup.jpg)
+
 ## Specs
 
 * As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and alcoholContent (or perhaps something like flavor for a kombucha store).

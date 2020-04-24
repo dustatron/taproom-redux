@@ -5,14 +5,14 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">McCord's Taproom</Navbar.Brand>
+      <Navbar.Brand href="/">McCord's Taproom</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-          <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <Nav.Link href="https://www.epicodus.com/">Epicodus</Nav.Link>
+          <Nav.Link href="https://github.com/dustatron/tap-room-react">Repo Link</Nav.Link>
+          <NavDropdown title="Tap Menu" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Cool Stuff</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
             <NavDropdown.Divider />
@@ -20,10 +20,8 @@ function Header() {
           </NavDropdown>
         </Nav>
         <Nav>
-          <Nav.Link href="#deets">More deets</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
-            Dank memes
-          </Nav.Link>
+          <Nav.Link href="https://github.com/dustatron">Github Profile</Nav.Link>
+          <Nav.Link href="http://www.dustymccord.com">Portfolio</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
