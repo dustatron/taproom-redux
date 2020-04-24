@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentKeg: {},
-      toolView: 0,
+      toolView: 1,
       kegs: [
         { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 4, id: "1" },
         { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 10, id: "2" },
@@ -44,6 +44,15 @@ class App extends React.Component {
     this.setState({ kegs: newKegList });
   };
 
+  handleFormEdit = (updatedKeg) => {
+    const editedKegsList = this.state.kegs
+      .filter((keg) => {
+        return keg.id !== this.state.currentKeg.id;
+      })
+      .concat(updatedKeg);
+    this.setState({ kegs: editedKegsList });
+  };
+
   render() {
     let toolView;
 
@@ -52,7 +61,7 @@ class App extends React.Component {
     } else if (this.state.toolView === 1) {
       toolView = <KegDetails keg={this.state.currentKeg} onAddKegClick={this.hangleShowAddKey} />;
     } else if (this.state.toolView === 2) {
-      toolView = <KegEdit />;
+      toolView = <KegEdit onformEditClick={this.handleFormEdit} keg={this.state.currentKeg} />;
     }
 
     return (
