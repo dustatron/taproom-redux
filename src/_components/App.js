@@ -4,6 +4,7 @@ import TapList from "./Tap/List";
 import KegAdd from "./Keg/Add";
 import KegDetails from "./Keg/Details";
 import KegEdit from "./Keg/Edit";
+import DeleteConfirm from "./Keg/DeleteConfirmModal";
 //bootstrap styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -12,6 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showModel: null,
       currentKeg: {},
       toolView: 0,
       kegs: [
@@ -77,10 +79,24 @@ class App extends React.Component {
     this.setState({ kegs: editedKegsList, toolView: 0 });
   };
 
+  handleDeleteKeg = () => {
+    const trimmedKegList = this.state.kegs.filter((keg) => {
+      return keg.id !== this.state.currentKeg.id;
+    });
+
+    this.setState({ kegs: trimmedKegList, toolView: 0 });
+  };
+
   handleShowEdit = () => {
     this.setState({ toolView: 2 });
   };
 
+  handleClose = () => {
+    this.setState({ showModel: false });
+  };
+  handleShow = () => {
+    this.setState({ showModel: true });
+  };
   render() {
     let toolView;
 
@@ -92,6 +108,7 @@ class App extends React.Component {
           keg={this.state.currentKeg}
           onAddKegClick={this.hangleShowAddKey}
           onEditClick={this.handleShowEdit}
+          onDeleteClick={this.handleShow}
         />
       );
     } else if (this.state.toolView === 2) {
@@ -121,6 +138,12 @@ class App extends React.Component {
             </Col>
           </Row>
         </Container>
+        <DeleteConfirm
+          onDeleteClick={this.handleDeleteKeg}
+          onClose={this.handleClose}
+          show={this.state.showModel}
+          beer={this.state.currentKeg.beer}
+        />
       </div>
     );
   }

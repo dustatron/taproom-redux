@@ -11,6 +11,10 @@ function KegDetails(props) {
     props.onEditClick();
   }
 
+  function handleDeleteClick() {
+    props.onDeleteClick();
+  }
+
   return (
     <div className="KegDetails">
       <h1 className="text-center"> Keg Details </h1>
@@ -28,6 +32,9 @@ function KegDetails(props) {
           <Button className="btn-block" variant="warning" onClick={handleEditClick}>
             Edit
           </Button>
+          <Button variant="danger" className="btn-block" onClick={handleDeleteClick}>
+            Delete Keg
+          </Button>
           <Button onClick={handleAddNewKegClick} className="btn-block" variant="secondary">
             Add New Keg
           </Button>
@@ -42,5 +49,6 @@ export default KegDetails;
 KegDetails.propTypes = {
   keg: PropTypes.object,
   onAddKegClick: PropTypes.func,
-  onEditClick: PropTypes.func
+  onEditClick: PropTypes.func,
+  onDeleteClick: PropTypes.func
 };
