@@ -6,13 +6,14 @@ import KegDetails from "./Keg/Details";
 import KegEdit from "./Keg/Edit";
 //bootstrap styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toolView: 1,
+      currentKeg: {},
+      toolView: 0,
       kegs: [
         { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 124, id: "1" },
         { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 124, id: "2" },
@@ -23,6 +24,11 @@ class App extends React.Component {
 
   hangleShowAddKey = () => {
     this.setState({ toolView: 0 });
+  };
+
+  handleShowBeerDetail = (id) => {
+    const thisKeg = this.state.kegs.filter((keg) => keg.id === id);
+    this.setState({ currentKeg: thisKeg[0], toolView: 1 });
   };
 
   handleMinuPint = (index) => {
@@ -42,7 +48,7 @@ class App extends React.Component {
     if (this.state.toolView === 0) {
       toolView = <KegAdd formSubmissionHandler={this.handleNewKeg} />;
     } else if (this.state.toolView === 1) {
-      toolView = <KegDetails keg={this.state.kegs[2]} onAddKegClick={this.hangleShowAddKey} />;
+      toolView = <KegDetails keg={this.state.currentKeg} onAddKegClick={this.hangleShowAddKey} />;
     } else if (this.state.toolView === 2) {
       toolView = <KegEdit />;
     }
@@ -53,7 +59,11 @@ class App extends React.Component {
         <Container>
           <Row>
             <Col xs={12} md={7}>
-              <TapList tapList={this.state.kegs} onMinusPintClick={this.handleMinuPint} />
+              <TapList
+                tapList={this.state.kegs}
+                onMinusPintClick={this.handleMinuPint}
+                onDetailClick={this.handleShowBeerDetail}
+              />
             </Col>
             <Col xs={12} md={5}>
               {toolView}

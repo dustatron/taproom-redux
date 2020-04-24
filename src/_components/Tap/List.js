@@ -16,6 +16,7 @@ function TapList(props) {
           aContent={tap.aContent}
           pints={tap.pints}
           onMinusClick={props.onMinusPintClick}
+          onShowBeerDetail={props.onDetailClick}
         />
       ))}
     </div>
@@ -25,5 +26,6 @@ function TapList(props) {
 export default TapList;
 
 TapList.propTypes = {
-  tapList: PropTypes.array
+  tapList: PropTypes.array,
+  onDetailClick: PropTypes.func
 };

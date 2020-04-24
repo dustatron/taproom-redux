@@ -7,13 +7,17 @@ function TapItem(props) {
     props.onMinusClick(props.count);
   }
 
+  function onBeerTitleClick() {
+    props.onShowBeerDetail(props.id);
+  }
+
   return (
     <Card>
       <Card.Body>
-        <Card.Title>
+        <Card.Title onClick={onBeerTitleClick}>
           [{props.count + 1}] {props.beer} by {props.brewery}{" "}
         </Card.Title>
-        <Card.Text>
+        <Card.Text onClick={onBeerTitleClick}>
           <Row>
             <Col md={12} lg={8}>
               <ListGroup horizontal>
@@ -42,5 +46,6 @@ TapItem.propTypes = {
   price: PropTypes.number,
   aContent: PropTypes.number,
   pints: PropTypes.number,
-  id: PropTypes.string
+  id: PropTypes.string,
+  onShowBeerDetail: PropTypes.func
 };

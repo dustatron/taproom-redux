@@ -23,9 +23,6 @@ function KegDetails(props) {
           <Button className="btn-block" variant="warning">
             Edit
           </Button>
-          <Button className="btn-block" variant="success">
-            Okay
-          </Button>
           <Button onClick={handleAddNewKegClick} className="btn-block" variant="secondary">
             Add New Keg
           </Button>
