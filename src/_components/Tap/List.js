@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./Item";
+import PropTypes from "prop-types";
 
 function TapList(props) {
   return (
@@ -22,3 +23,7 @@ function TapList(props) {
 }
 
 export default TapList;
+
+TapList.propTypes = {
+  tapList: PropTypes.array
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, ListGroup, Button, Col, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 function TapItem(props) {
   function onMinusClick() {
@@ -34,3 +35,12 @@ function TapItem(props) {
 }
 
 export default TapItem;
+
+TapItem.propTypes = {
+  beer: PropTypes.string,
+  brewery: PropTypes.string,
+  price: PropTypes.number,
+  aContent: PropTypes.number,
+  pints: PropTypes.number,
+  id: PropTypes.string
+};

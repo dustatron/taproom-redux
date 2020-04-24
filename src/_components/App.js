@@ -13,9 +13,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       kegs: [
-        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 124, id: 1 },
-        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 124, id: 2 },
-        { beer: "Golden Girls Pale Ale", brewery: "St. Olaf Brewery", price: 4, aContent: 2, pints: 124, id: 3 }
+        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 124, id: "1" },
+        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 124, id: "2" },
+        { beer: "Golden Girls Pale Ale", brewery: "St. Olaf Brewery", price: 4, aContent: 2, pints: 124, id: "3" }
       ]
     };
   }
@@ -42,8 +42,8 @@ class App extends React.Component {
             </Col>
             <Col xs={6} md={5}>
               <KegAdd formSubmissionHandler={this.handleNewKeg} />
-              {/* <KegDetails />
-              <KegEdit /> */}
+              <KegDetails keg={this.state.kegs[2]} />
+              {/* <KegEdit /> */}
             </Col>
           </Row>
         </Container>
