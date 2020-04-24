@@ -7,6 +7,10 @@ function KegDetails(props) {
     props.onAddKegClick();
   }
 
+  function handleEditClick() {
+    props.onEditClick();
+  }
+
   return (
     <div className="KegDetails">
       <h1 className="text-center"> Keg Details </h1>
@@ -14,13 +18,13 @@ function KegDetails(props) {
         <Card.Header>{props.keg.beer}</Card.Header>
         <Card.Body>
           <ListGroup>
-            <ListGroup.Item>{props.keg.brewery}</ListGroup.Item>
-            <ListGroup.Item>{props.keg.price}</ListGroup.Item>
-            <ListGroup.Item>{props.keg.aContent}</ListGroup.Item>
-            <ListGroup.Item>{props.keg.pints}</ListGroup.Item>
-            <ListGroup.Item>{props.keg.id}</ListGroup.Item>
+            <ListGroup.Item>Brewery: {props.keg.brewery}</ListGroup.Item>
+            <ListGroup.Item>Price: ${props.keg.price}</ListGroup.Item>
+            <ListGroup.Item>Alcohol Content: {props.keg.aContent}%</ListGroup.Item>
+            <ListGroup.Item>Pints Remaining: {props.keg.pints}</ListGroup.Item>
+            <ListGroup.Item>SKU: {props.keg.id}</ListGroup.Item>
           </ListGroup>
-          <Button className="btn-block" variant="warning">
+          <Button className="btn-block" variant="warning" onClick={handleEditClick}>
             Edit
           </Button>
           <Button onClick={handleAddNewKegClick} className="btn-block" variant="secondary">
@@ -36,5 +40,6 @@ export default KegDetails;
 
 KegDetails.propTypes = {
   keg: PropTypes.object,
-  onAddKegClick: PropTypes.func
+  onAddKegClick: PropTypes.func,
+  onEditClick: PropTypes.func
 };

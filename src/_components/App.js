@@ -13,11 +13,19 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentKeg: {},
-      toolView: 1,
+      toolView: 0,
       kegs: [
-        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 4, id: "1" },
-        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 10, id: "2" },
-        { beer: "Golden Girls Pale Ale", brewery: "St. Olaf Brewery", price: 4, aContent: 2, pints: 124, id: "3" }
+        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 4, id: "1", createAt: "1" },
+        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 10, id: "2", createAt: "2" },
+        {
+          beer: "Golden Girls Pale Ale",
+          brewery: "St. Olaf Brewery",
+          price: 4,
+          aContent: 2,
+          pints: 124,
+          id: "3",
+          createAt: "3"
+        }
       ]
     };
   }
@@ -50,7 +58,11 @@ class App extends React.Component {
         return keg.id !== this.state.currentKeg.id;
       })
       .concat(updatedKeg);
-    this.setState({ kegs: editedKegsList });
+    this.setState({ kegs: editedKegsList, toolView: 0 });
+  };
+
+  handleShowEdit = () => {
+    this.setState({ toolView: 2 });
   };
 
   render() {
@@ -59,7 +71,13 @@ class App extends React.Component {
     if (this.state.toolView === 0) {
       toolView = <KegAdd formSubmissionHandler={this.handleNewKeg} />;
     } else if (this.state.toolView === 1) {
-      toolView = <KegDetails keg={this.state.currentKeg} onAddKegClick={this.hangleShowAddKey} />;
+      toolView = (
+        <KegDetails
+          keg={this.state.currentKeg}
+          onAddKegClick={this.hangleShowAddKey}
+          onEditClick={this.handleShowEdit}
+        />
+      );
     } else if (this.state.toolView === 2) {
       toolView = <KegEdit onformEditClick={this.handleFormEdit} keg={this.state.currentKeg} />;
     }

@@ -10,8 +10,8 @@ function KegEdit(props) {
       brewery: event.target.brewery.value,
       price: event.target.price.value,
       aContent: event.target.aContent.value,
-      pints: 124,
-      id: props.id
+      pints: event.target.pints.value,
+      id: props.keg.id
     });
   }
 
@@ -39,6 +39,11 @@ function KegEdit(props) {
             <Form.Group controlId="newKeg">
               <Form.Label>Alcohol Content</Form.Label>
               <Form.Control type="text" name="aContent" defaultValue={props.keg.aContent} />
+            </Form.Group>
+
+            <Form.Group controlId="newKeg">
+              <Form.Label>Pints Remaining</Form.Label>
+              <Form.Control type="text" name="pints" defaultValue={props.keg.pints} />
             </Form.Group>
 
             <Button className="btn-block" variant="danger" type="submit">
