@@ -11,8 +11,12 @@ function KegEdit(props) {
       price: event.target.price.value,
       aContent: event.target.aContent.value,
       pints: event.target.pints.value,
-      id: props.keg.id
+      id: props.keg.id,
+      createAt: props.keg.createAt
     });
+  }
+  function handleAddNewKegClick() {
+    props.onAddKegClick();
   }
 
   return (
@@ -50,7 +54,7 @@ function KegEdit(props) {
               Update
             </Button>
           </Form>
-          <Button className="btn-block" variant="secondary" type="submit">
+          <Button className="btn-block" variant="secondary" type="submit" onClick={handleAddNewKegClick}>
             Add Keg
           </Button>
         </Card.Body>
@@ -63,5 +67,6 @@ export default KegEdit;
 
 KegEdit.propTypes = {
   keg: PropTypes.func,
-  onformEditClick: PropTypes.func
+  onformEditClick: PropTypes.func,
+  onAddKegClick: PropTypes.func
 };

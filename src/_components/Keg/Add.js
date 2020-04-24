@@ -12,7 +12,8 @@ function KegAdd(props) {
       price: event.target.price.value,
       aContent: event.target.aContent.value,
       pints: 124,
-      id: v4()
+      id: v4(),
+      createAt: Date.now()
     });
   }
 

@@ -15,8 +15,24 @@ class App extends React.Component {
       currentKeg: {},
       toolView: 0,
       kegs: [
-        { beer: "Dirty Dan Ale", brewery: "Mnt Brewery", price: 4, aContent: 9, pints: 4, id: "1", createAt: "1" },
-        { beer: "Cream Ale", brewery: "Pelican Brewery", price: 7, aContent: 7, pints: 10, id: "2", createAt: "2" },
+        {
+          beer: "Dirty Dan Ale",
+          brewery: "Mnt Brewery",
+          price: 4,
+          aContent: 9,
+          pints: 4,
+          id: "1",
+          createAt: 1587762467285
+        },
+        {
+          beer: "Cream Ale",
+          brewery: "Pelican Brewery",
+          price: 7,
+          aContent: 7,
+          pints: 10,
+          id: "2",
+          createAt: 1587762429777
+        },
         {
           beer: "Golden Girls Pale Ale",
           brewery: "St. Olaf Brewery",
@@ -24,7 +40,7 @@ class App extends React.Component {
           aContent: 2,
           pints: 124,
           id: "3",
-          createAt: "3"
+          createAt: 1587762424204
         }
       ]
     };
@@ -79,7 +95,13 @@ class App extends React.Component {
         />
       );
     } else if (this.state.toolView === 2) {
-      toolView = <KegEdit onformEditClick={this.handleFormEdit} keg={this.state.currentKeg} />;
+      toolView = (
+        <KegEdit
+          onformEditClick={this.handleFormEdit}
+          keg={this.state.currentKeg}
+          onAddKegClick={this.hangleShowAddKey}
+        />
+      );
     }
 
     return (
