@@ -5,7 +5,9 @@
 ## Description
 This app will show all the kegs available in a tap room and allow a user to up update the points sold and add new kegs. 
 
-### [Link to working demo](https://gallant-dijkstra-379443.netlify.app/)
+
+
+### [Link to working demo](https://5ea36bf9a4028d1f5a38c2b4--mccords-taproom-react.netlify.app/)
 
 ## Specs
 
