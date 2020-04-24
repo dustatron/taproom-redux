@@ -38,7 +38,7 @@ function TapItem(props) {
     <Card className="bottom-margin--med">
       <Card.Body>
         <Card.Title onClick={onBeerTitleClick} className="keg-details">
-          [{props.count + 1}] {props.beer} by {props.brewery}
+          <span className="beer-title">{props.beer} </span> by {props.brewery}
           {stock}
         </Card.Title>
         <Card.Text>

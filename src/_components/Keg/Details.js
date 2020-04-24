@@ -16,10 +16,10 @@ function KegDetails(props) {
   }
 
   return (
-    <div className="KegDetails">
-      <h1 className="text-center"> Keg Details </h1>
+    <div className="KegDetails top-margin-med">
+      <h1 className="text-center tap-header"> Keg Details </h1>
       <Card>
-        <Card.Header>{props.keg.beer}</Card.Header>
+        <Card.Header className="text-center">{props.keg.beer}</Card.Header>
         <Card.Body>
           <ListGroup>
             <ListGroup.Item>Brewery: {props.keg.brewery}</ListGroup.Item>

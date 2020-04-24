@@ -18,8 +18,8 @@ function KegAdd(props) {
   }
 
   return (
-    <div className="KegAdd">
-      <h1 className="text-center"> KegAdd </h1>
+    <div className="KegAdd top-margin-med">
+      <h1 className="text-center tap-header"> NEW KEG </h1>
       <Card>
         <Card.Body>
           <Form onSubmit={handleNewKegFormSubmission}>

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function TapList(props) {
   return (
     <div className="TapList">
-      <h1 className="text-center"> Tap List </h1>
+      <h1 className="text-center tap-header"> TAP LIST </h1>
       {props.tapList
         .sort((a, b) => {
           return new Date(b.createAt) - new Date(a.createAt);

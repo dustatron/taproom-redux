@@ -20,8 +20,8 @@ function KegEdit(props) {
   }
 
   return (
-    <div className="KegEdit">
-      <h1 className="text-center"> KegEdit </h1>
+    <div className="KegEdit top-margin-med">
+      <h1 className="text-center tap-header"> KegEdit </h1>
       <Card>
         <Card.Body>
           <Form onSubmit={handleEditKegFormSubmission}>

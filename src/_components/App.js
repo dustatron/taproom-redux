@@ -127,7 +127,7 @@ class App extends React.Component {
         <Header />
         <Container>
           <Row>
-            <Col xs={12} md={7}>
+            <Col xs={12} md={8}>
               <TapList
                 tapList={this.state.kegs}
                 onMinusPintClick={this.handleMinuPint}
@@ -135,7 +135,7 @@ class App extends React.Component {
                 listAccend={this.state.listOrder}
               />
             </Col>
-            <Col xs={12} md={5}>
+            <Col xs={12} md={4}>
               {toolView}
             </Col>
           </Row>
