@@ -31,5 +31,6 @@ export default TapList;
 
 TapList.propTypes = {
   tapList: PropTypes.array,
-  onDetailClick: PropTypes.func
+  onDetailClick: PropTypes.func,
+  listAccend: PropTypes.bool
 };

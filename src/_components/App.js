@@ -13,6 +13,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      listOrder: 1,
       showModel: null,
       currentKeg: {},
       toolView: 0,
@@ -131,6 +132,7 @@ class App extends React.Component {
                 tapList={this.state.kegs}
                 onMinusPintClick={this.handleMinuPint}
                 onDetailClick={this.handleShowBeerDetail}
+                listAccend={this.state.listOrder}
               />
             </Col>
             <Col xs={12} md={5}>
