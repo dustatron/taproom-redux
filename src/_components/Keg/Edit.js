@@ -54,7 +54,12 @@ function KegEdit(props) {
               Update
             </Button>
           </Form>
-          <Button className="btn-block" variant="secondary" type="submit" onClick={handleAddNewKegClick}>
+          <Button
+            className="btn-block top-margin--med"
+            variant="secondary"
+            type="submit"
+            onClick={handleAddNewKegClick}
+          >
             Add Keg
           </Button>
         </Card.Body>

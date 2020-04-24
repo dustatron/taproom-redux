@@ -11,21 +11,23 @@ function TapItem(props) {
     props.onShowBeerDetail(props.id);
   }
   let stock;
-  if (props.pints <= 0) {
+  if (props.pints < 10 && props.pints > 0) {
+    stock = <Alert variant="warning">Almost Out!</Alert>;
+  } else if (props.pints <= 0) {
     stock = <Alert variant="danger">OUT OF STOCK</Alert>;
   }
 
   return (
-    <Card>
+    <Card className="bottom-margin--med">
       <Card.Body>
-        <Card.Title onClick={onBeerTitleClick}>
+        <Card.Title onClick={onBeerTitleClick} className="keg-details">
           [{props.count + 1}] {props.beer} by {props.brewery}
           {stock}
         </Card.Title>
         <Card.Text>
           <Row>
             <Col md={12} lg={8} onClick={onBeerTitleClick}>
-              <ListGroup horizontal>
+              <ListGroup horizontal className="keg-details">
                 <ListGroup.Item> ${props.price}</ListGroup.Item>
                 <ListGroup.Item>{props.aContent}% ac </ListGroup.Item>
                 <ListGroup.Item>{props.pints} Remaining</ListGroup.Item>

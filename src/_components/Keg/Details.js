@@ -29,7 +29,7 @@ function KegDetails(props) {
             <ListGroup.Item>Created at: {props.keg.createAt}</ListGroup.Item>
             <ListGroup.Item>SKU: {props.keg.id}</ListGroup.Item>
           </ListGroup>
-          <Button className="btn-block" variant="warning" onClick={handleEditClick}>
+          <Button className="btn-block top-margin--med" variant="warning" onClick={handleEditClick}>
             Edit
           </Button>
           <Button variant="danger" className="btn-block" onClick={handleDeleteClick}>
