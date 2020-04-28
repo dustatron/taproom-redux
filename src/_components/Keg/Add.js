@@ -53,8 +53,8 @@ function KegAdd(props) {
   );
 }
 
-export default KegAdd;
-
 KegAdd.propTypes = {
   formSubmissionHandler: PropTypes.func
 };
+
+export default KegAdd;

@@ -27,10 +27,10 @@ function DeleteConfirm(props) {
   );
 }
 
-export default DeleteConfirm;
-
 DeleteConfirm.propTypes = {
   beer: PropTypes.string,
   onClose: PropTypes.func,
   show: PropTypes.bool
 };
+
+export default DeleteConfirm;

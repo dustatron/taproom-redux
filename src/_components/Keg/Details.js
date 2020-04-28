@@ -44,11 +44,11 @@ function KegDetails(props) {
   );
 }
 
-export default KegDetails;
-
 KegDetails.propTypes = {
   keg: PropTypes.object,
   onAddKegClick: PropTypes.func,
   onEditClick: PropTypes.func,
   onDeleteClick: PropTypes.func
 };
+
+export default KegDetails;

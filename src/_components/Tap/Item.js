@@ -62,8 +62,6 @@ function TapItem(props) {
   );
 }
 
-export default TapItem;
-
 TapItem.propTypes = {
   beer: PropTypes.string,
   brewery: PropTypes.string,
@@ -73,3 +71,5 @@ TapItem.propTypes = {
   id: PropTypes.string,
   onShowBeerDetail: PropTypes.func
 };
+
+export default TapItem;

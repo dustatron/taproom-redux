@@ -68,10 +68,10 @@ function KegEdit(props) {
   );
 }
 
-export default KegEdit;
-
 KegEdit.propTypes = {
   keg: PropTypes.func,
   onformEditClick: PropTypes.func,
   onAddKegClick: PropTypes.func
 };
+
+export default KegEdit;
