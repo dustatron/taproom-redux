@@ -5,6 +5,8 @@ export default (state = 0, action) => {
       return 0;
     case a.VIEW_KEY_DETAILS:
       return 1;
+    case a.VIEW_KEY_EDIT:
+      return 2;
     default:
       return state;
   }
