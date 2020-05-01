@@ -1,4 +1,13 @@
 const InitialState = {
+  selectedKeg: {
+    beer: "Dirty Dan's Pale Ale",
+    brewery: 'Mnt Brewery',
+    price: 3,
+    aContent: 9,
+    pints: 4,
+    id: '1',
+    createAt: 1587762467285
+  },
   kegList: {
     1: {
       beer: "Dirty Dan's Pale Ale",

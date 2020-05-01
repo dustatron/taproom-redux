@@ -99,12 +99,12 @@ function App(props) {
           </Col>
         </Row>
       </Container>
-      {/* <DeleteConfirm
+      <DeleteConfirm
         onDeleteClick={handleDeleteKeg}
         onClose={handleClose}
         show={props.showModal}
         beer={props.selectedKeg.beer}
-      /> */}
+      />
     </div>
   );
 }
@@ -118,7 +118,7 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    selectedKeg: state.selected,
+    selectedKeg: state.selectedKeg,
     kegList: state.kegList,
     showModal: state.showModal,
     toolView: state.toolView
