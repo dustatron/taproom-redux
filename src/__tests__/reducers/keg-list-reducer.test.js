@@ -19,7 +19,7 @@ describe('kegListReducer', () => {
       price: 7,
       aContent: 7,
       pints: 11,
-      id: '2',
+      id: '1',
       createAt: 1587762429777
     },
     [2]: {
@@ -28,7 +28,7 @@ describe('kegListReducer', () => {
       price: 10,
       aContent: 2,
       pints: 124,
-      id: '3',
+      id: '2',
       createAt: 1587762424204
     }
   };
@@ -61,5 +61,21 @@ describe('kegListReducer', () => {
         createAt: 1587762467285
       }
     });
+  });
+  test('Should remove keg from kegList', () => {
+    const action = { type: a.DELETE_KEY, id: 1 };
+    const updatedState = {
+      '2': {
+        beer: 'Golden Girls Pale Ale',
+        brewery: 'St. Olaf Brewery',
+        price: 10,
+        aContent: 2,
+        pints: 124,
+        id: '2',
+        createAt: 1587762424204
+      }
+    };
+
+    expect(kegListReducer(currentState, action)).toEqual(updatedState);
   });
 });
