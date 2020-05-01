@@ -5,7 +5,7 @@ import KegAdd from './Keg/KegAdd';
 import KegDetails from './Keg/KegDetails';
 import KegEdit from './Keg/KegEdit';
 import DeleteConfirm from './Keg/DeleteConfirm';
-import * as a from '../actions';
+import * as a from './../actions/index';
 
 //redux
 import { connect } from 'react-redux';
