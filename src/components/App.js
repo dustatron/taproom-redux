@@ -14,7 +14,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listOrder: 1,
       showModel: null,
       currentKeg: {},
       toolView: 0,
