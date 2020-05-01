@@ -28,7 +28,7 @@ function TapList(props) {
 }
 
 TapList.propTypes = {
-  tapList: PropTypes.array,
+  tapList: PropTypes.object,
   onDetailClick: PropTypes.func,
   listAccend: PropTypes.bool
 };

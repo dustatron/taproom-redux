@@ -6,6 +6,7 @@ import KegDetails from './Keg/KegDetails';
 import KegEdit from './Keg/KegEdit';
 import DeleteConfirm from './Keg/DeleteConfirm';
 import * as actions from '../actions';
+
 //redux
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -15,99 +16,103 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function App(props) {
+  // loading dispatch
   const { dispatch } = props;
 
-  //  --------- change tool view ------------- \\
+  ///////////////////////////////////////////
+  //------------ change tool view -------- //
+  //////////////////////////////////////////
   const handleViewKegAdd = () => {
     dispatch(actions.viewKegAdd());
   };
 
   const handleViewKegDetails = (id) => {
+    const selectKeg = props.kegList[id];
     dispatch(actions.viewKegDetails(id));
+    dispatch(actions.changeSelected(selectKeg));
   };
 
   const handleViewKegEdit = (id) => {
-    dispatch(actions.viewKegEdit());
-    // this.setState({ toolView: 2 });
+    dispatch(actions.viewKegEdit(id));
+  };
+  //////////////////////////////////////
+  //------------ Keg Actions -------- //
+  //////////////////////////////////////
+  const handleSellPint = (id) => {
+    dispatch(actions.sellPint(id));
   };
 
-  //------------ list actions -------- \\
-
-  const handleMinuPint = (index) => {
-    const allKegs = this.props.kegs;
-    if (allKegs[index].pints > 0) {
-      allKegs[index].pints -= 1;
-      this.setState({ kegs: allKegs });
-    }
+  const handleAddKeg = (newKeg) => {
+    dispatch(actions.addKeg(newKeg));
   };
 
-  const handleNewKeg = (newKeg) => {
-    const newKegList = this.props.kegs.concat(newKeg);
-    this.setState({ kegs: newKegList });
-  };
-
-  const handleFormEdit = (updatedKeg) => {
-    const editedKegsList = this.props.kegs
-      .filter((keg) => {
-        return keg.id !== this.props.currentKeg.id;
-      })
-      .concat(updatedKeg);
-    this.setState({ kegs: editedKegsList, toolView: 0 });
+  const handleEditKeg = (updatedKeg) => {
+    dispatch(actions.addKeg(updatedKeg));
   };
 
   const handleDeleteKeg = () => {
-    const trimmedKegList = this.props.kegs.filter((keg) => {
-      return keg.id !== this.props.currentKeg.id;
-    });
-
-    this.setState({ kegs: trimmedKegList, toolView: 0 });
+    dispatch(actions.deleteKeg(props.selectedKeg.id));
+    dispatch(actions.viewKegAdd());
   };
 
-  const handleClose = () => {
-    this.setState({ showModel: false });
+  const toggleModal = () => {
+    dispatch(actions.toggleModal());
   };
-  const handleShow = () => {
-    this.setState({ showModel: true });
-  };
+
+  //////////////////////////////////////////////////
+  //------------ checking tool view state ------ //
+  // ----------- and render tool state -------- //
+  ///////////////////////////////////////////////
 
   let toolView;
 
   if (props.toolView === 0) {
-    toolView = <KegAdd formSubmissionconstHandler={handleNewKeg} />;
+    //show add keg form
+    toolView = <KegAdd formSubmissionHandler={handleAddKeg} />;
   } else if (props.toolView === 1) {
+    //show details
     toolView = (
       <KegDetails
         keg={props.selectedKeg}
         onAddKegClick={handleViewKegAdd}
         onEditClick={handleViewKegEdit}
-        onDeleteClick={handleShow}
+        onDeleteClick={toggleModal}
       />
     );
   } else if (props.toolView === 2) {
-    toolView = <KegEdit onformEditClick={handleFormEdit} keg={props.selectedKeg} onAddKegClick={handleViewKegAdd} />;
+    //show edit form
+    toolView = <KegEdit onformEditClick={handleEditKeg} keg={props.selectedKeg} onAddKegClick={handleViewKegAdd} />;
   }
 
   return (
     <div className="App">
       <Header />
+      {/* //////////////////////////////////////////
+      //------------   Main Page  -------------- //
+      ///////////////////////////////////////// */}
       <Container>
         <Row>
           <Col xs={12} md={8}>
             <TapList
               tapList={props.kegList}
-              onMinusPintClick={handleMinuPint}
+              onMinusPintClick={handleSellPint}
               onDetailClick={handleViewKegDetails}
               listAccend={props.listOrder}
             />
           </Col>
+
           <Col xs={12} md={4}>
             {toolView}
           </Col>
         </Row>
       </Container>
+
+      {/* //////////////////////////////////////
+      //------------   Modal  -------------- //
+      ////////////////////////////////////// */}
       <DeleteConfirm
         onDeleteClick={handleDeleteKeg}
-        onClose={handleClose}
+        onClose={toggleModal}
         show={props.showModal}
         beer={props.selectedKeg.beer}
       />

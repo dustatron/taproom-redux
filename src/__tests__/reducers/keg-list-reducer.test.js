@@ -37,7 +37,7 @@ describe('kegListReducer', () => {
     expect(kegListReducer({}, { type: null })).toEqual({});
   });
 
-  test('Should successfully add new post data to kegList', () => {
+  test('Should successfully add new keg data to kegList', () => {
     const { beer, brewery, price, aContent, pints, id, createAt } = kegData;
     const action = {
       type: a.ADD_KEG,

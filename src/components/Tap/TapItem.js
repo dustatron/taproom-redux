@@ -1,11 +1,11 @@
-import React from "react";
-import { Card, ListGroup, Button, Col, Row, Alert } from "react-bootstrap";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Card, ListGroup, Button, Col, Row, Alert } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 //Handle Click functions
 function TapItem(props) {
   function onMinusClick() {
-    props.onMinusClick(props.count);
+    props.onMinusClick(props.id);
   }
 
   function onBeerTitleClick() {
@@ -25,13 +25,13 @@ function TapItem(props) {
 
   //Price labeling
   if (props.price < 4 && props.price > 0) {
-    priceColor = "success";
+    priceColor = 'success';
   } else if (props.price < 8 && props.price > 4) {
-    priceColor = "warning";
+    priceColor = 'warning';
   } else if (props.price < 11 && props.price > 8) {
-    priceColor = "info";
+    priceColor = 'info';
   } else {
-    priceColor = "secondary";
+    priceColor = 'secondary';
   }
 
   return (
@@ -45,7 +45,7 @@ function TapItem(props) {
           <Row>
             <Col md={12} lg={8} onClick={onBeerTitleClick}>
               <ListGroup horizontal className="keg-details">
-                <ListGroup.Item className={"bg-" + priceColor}> ${props.price}</ListGroup.Item>
+                <ListGroup.Item className={'bg-' + priceColor}> ${props.price}</ListGroup.Item>
                 <ListGroup.Item>{props.aContent}% ac </ListGroup.Item>
                 <ListGroup.Item>{props.pints} Remaining</ListGroup.Item>
               </ListGroup>
