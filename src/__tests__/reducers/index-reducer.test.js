@@ -58,6 +58,11 @@ describe('rootReducer', () => {
   });
 
   // show-modal-reducer
+  test('Check that modified state of showModal matches rootState', () => {
+    action = { type: a.TOGGLE_MODAL };
+    store.dispatch(action);
+    expect(store.getState().showModal).toEqual(showModalReducer(false, action));
+  });
 
   // tool-view-reducer
 });
