@@ -6,7 +6,7 @@ function TapList(props) {
   return (
     <div className="TapList">
       <h1 className="text-center tap-header"> TAP LIST </h1>
-      {props.tapList
+      {Object.values(props.tapList)
         .sort((a, b) => {
           return new Date(b.createAt) - new Date(a.createAt);
         })

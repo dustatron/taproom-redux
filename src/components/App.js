@@ -88,7 +88,7 @@ function App(props) {
         <Row>
           <Col xs={12} md={8}>
             <TapList
-              tapList={props.kegs}
+              tapList={props.kegList}
               onMinusPintClick={handleMinuPint}
               onDetailClick={handleShowBeerDetail}
               listAccend={props.listOrder}
@@ -99,12 +99,12 @@ function App(props) {
           </Col>
         </Row>
       </Container>
-      <DeleteConfirm
+      {/* <DeleteConfirm
         onDeleteClick={handleDeleteKeg}
         onClose={handleClose}
-        show={props.showModel}
-        beer={props.currentKeg.beer}
-      />
+        show={props.showModal}
+        beer={props.selectedKeg.beer}
+      /> */}
     </div>
   );
 }
@@ -118,10 +118,10 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    selectedKeg: state.selectedKegReducer,
-    kegList: state.kegListReducer,
-    showModal: state.showModalReducer,
-    toolView: state.toolViewReducer
+    selectedKeg: state.selected,
+    kegList: state.kegList,
+    showModal: state.showModal,
+    toolView: state.toolView
   };
 };
 // eslint-disable-next-line
