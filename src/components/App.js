@@ -1,13 +1,14 @@
-import React from "react";
-import Header from "./Layout/Navbar";
-import TapList from "./Tap/List";
-import KegAdd from "./Keg/Add";
-import KegDetails from "./Keg/Details";
-import KegEdit from "./Keg/Edit";
-import DeleteConfirm from "./Keg/DeleteConfirmModal";
+import React from 'react';
+import Header from './Layout/Navbar';
+import TapList from './Tap/TapList';
+import KegAdd from './Keg/KegAdd';
+import KegDetails from './Keg/KegDetails';
+import KegEdit from './Keg/KegEdit';
+import DeleteConfirm from './Keg/DeleteConfirm';
 //bootstrap styling
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import StarterKegs from './StarterKegs';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,44 +18,7 @@ class App extends React.Component {
       showModel: null,
       currentKeg: {},
       toolView: 0,
-      kegs: [
-        {
-          beer: "Dirty Dan's Pale Ale",
-          brewery: "Mnt Brewery",
-          price: 3,
-          aContent: 9,
-          pints: 4,
-          id: "1",
-          createAt: 1587762467285
-        },
-        {
-          beer: "Real DeadMan's Ale",
-          brewery: "Pelican Brewery",
-          price: 7,
-          aContent: 7,
-          pints: 11,
-          id: "2",
-          createAt: 1587762429777
-        },
-        {
-          beer: "Golden Girls Pale Ale",
-          brewery: "St. Olaf Brewery",
-          price: 10,
-          aContent: 2,
-          pints: 124,
-          id: "3",
-          createAt: 1587762424204
-        },
-        {
-          beer: "Hazy Jerry's IPA",
-          brewery: "Under the Bridge Brewery",
-          price: 5,
-          aContent: 9,
-          pints: 124,
-          id: "4",
-          createAt: 1587768759678
-        }
-      ]
+      kegs: StarterKegs
     };
   }
 

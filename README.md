@@ -30,14 +30,22 @@ Stretch Goals
   
 ## Component diagram / Wireframe
 
-![Component Map](src/_img/mockup.jpg)
+![Component Map](src/img/mockup.jpg)
 
 
 ## Installation instructions
 
 Clone the project by typing this command into your terminal.
 ```sh
-git clone https://github.com/dustatron/tap-room-react
+git clone https://github.com/dustatron/tap-room-react.git
+```
+Navigate to the new project folder by typing:
+```sh
+cd tap-room-react
+```
+Install all required packages with this command:
+```sh
+npm install
 ```
 
 In the project directory, you can run: 

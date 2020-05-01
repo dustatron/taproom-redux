@@ -1,7 +1,7 @@
-import React from "react";
-import { Card, Form, Button, Modal } from "react-bootstrap";
-import { v4 } from "uuid";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Card, Form, Button } from 'react-bootstrap';
+import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 function KegAdd(props) {
   function handleNewKegFormSubmission(event) {

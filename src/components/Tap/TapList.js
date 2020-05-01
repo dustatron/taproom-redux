@@ -1,6 +1,6 @@
-import React from "react";
-import Item from "./Item";
-import PropTypes from "prop-types";
+import React from 'react';
+import TapItem from './TapItem';
+import PropTypes from 'prop-types';
 
 function TapList(props) {
   return (
@@ -11,7 +11,7 @@ function TapList(props) {
           return new Date(b.createAt) - new Date(a.createAt);
         })
         .map((tap, index) => (
-          <Item
+          <TapItem
             count={index}
             id={tap.id}
             beer={tap.beer}
