@@ -9,6 +9,8 @@ import * as a from '../actions';
 
 //redux
 import { connect } from 'react-redux';
+
+//prop-types
 import PropTypes from 'prop-types';
 
 //bootstrap styling
@@ -35,9 +37,11 @@ function App(props) {
   const handleViewKegEdit = (id) => {
     dispatch(a.viewKegEdit(id));
   };
+
   /////////////////////////////////////////////
   //------------ Keg CRUD methods -------- //
   //////////////////////////////////////////
+
   const handleSellPint = (id) => {
     dispatch(a.sellPint(id));
   };
