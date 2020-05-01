@@ -4,7 +4,7 @@ export default (state = {}, action) => {
   const { beer, brewery, price, aContent, pints, id, createAt } = action;
   switch (action.type) {
     case a.ADD_KEY:
-      const newState = Object.assign({}, state, {
+      const addingToState = Object.assign({}, state, {
         [id]: {
           beer,
           brewery,
@@ -15,8 +15,12 @@ export default (state = {}, action) => {
           createAt
         }
       });
+      return addingToState;
 
-      return newState;
+    case a.DELETE_KEY:
+      const deleteFromState = { ...state };
+      delete deleteFromState[id];
+      return deleteFromState;
     default:
       return state;
   }
