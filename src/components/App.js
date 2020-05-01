@@ -5,6 +5,7 @@ import KegAdd from './Keg/KegAdd';
 import KegDetails from './Keg/KegDetails';
 import KegEdit from './Keg/KegEdit';
 import DeleteConfirm from './Keg/DeleteConfirm';
+import * as actions from '../actions';
 //redux
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -14,14 +15,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function App(props) {
-  const handleShowAddKey = () => {
-    this.setState({ toolView: 0 });
+  const { dispatch } = props;
+
+  //  --------- change tool view ------------- \\
+  const handleViewKegAdd = () => {
+    dispatch(actions.viewKegAdd());
   };
 
-  const handleShowBeerDetail = (id) => {
-    const thisKeg = this.props.kegs.filter((keg) => keg.id === id);
-    this.setState({ currentKeg: thisKeg[0], toolView: 1 });
+  const handleViewKegDetails = (id) => {
+    dispatch(actions.viewKegDetails(id));
   };
+
+  const handleViewKegEdit = (id) => {
+    dispatch(actions.viewKegEdit());
+    // this.setState({ toolView: 2 });
+  };
+
+  //------------ list actions -------- \\
 
   const handleMinuPint = (index) => {
     const allKegs = this.props.kegs;
@@ -53,10 +63,6 @@ function App(props) {
     this.setState({ kegs: trimmedKegList, toolView: 0 });
   };
 
-  const handleShowEdit = () => {
-    this.setState({ toolView: 2 });
-  };
-
   const handleClose = () => {
     this.setState({ showModel: false });
   };
@@ -71,14 +77,14 @@ function App(props) {
   } else if (props.toolView === 1) {
     toolView = (
       <KegDetails
-        keg={props.currentKeg}
-        onAddKegClick={handleShowAddKey}
-        onEditClick={handleShowEdit}
+        keg={props.selectedKeg}
+        onAddKegClick={handleViewKegAdd}
+        onEditClick={handleViewKegEdit}
         onDeleteClick={handleShow}
       />
     );
   } else if (props.toolView === 2) {
-    toolView = <KegEdit onformEditClick={handleFormEdit} keg={props.currentKeg} onAddKegClick={handleShowAddKey} />;
+    toolView = <KegEdit onformEditClick={handleFormEdit} keg={props.selectedKeg} onAddKegClick={handleViewKegAdd} />;
   }
 
   return (
@@ -90,7 +96,7 @@ function App(props) {
             <TapList
               tapList={props.kegList}
               onMinusPintClick={handleMinuPint}
-              onDetailClick={handleShowBeerDetail}
+              onDetailClick={handleViewKegDetails}
               listAccend={props.listOrder}
             />
           </Col>
