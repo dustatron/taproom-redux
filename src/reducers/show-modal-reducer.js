@@ -1,3 +1,9 @@
+import * as a from '../actions/ActionTypes';
 export default (state = false, action) => {
-  return state;
+  switch (action.type) {
+    case a.TOGGLE_MODAL:
+      return !state;
+    default:
+      return state;
+  }
 };
