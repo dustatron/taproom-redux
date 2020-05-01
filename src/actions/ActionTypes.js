@@ -10,4 +10,6 @@ export const CHANGE_SELECTED = 'CHANGE_SELETED';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
 // ------------- tool-view-reducer -----------
-export const UPDATE_VIEW = 'UPDATE_VIEW';
+export const VIEW_ADD = 'VIEW_ADD';
+export const VIEW_EDIT = 'VIEW_EDIT';
+export const VIEW_DETAILS = 'VIEW_DETAILS';
