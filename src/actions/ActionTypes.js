@@ -1,6 +1,6 @@
 // ------------ keg-list-reducer -------------
-export const ADD_KEY = 'ADD_KEY';
-export const DELETE_KEY = 'DELETE_KEY';
+export const ADD_KEG = 'ADD_KEG';
+export const DELETE_KEG = 'DELETE_KEG';
 export const SELL_PINT = 'SELL_PINT';
 
 // ------------- selected-list-reducer -----------

@@ -21,4 +21,10 @@ describe('rootReducer', () => {
   test('Should return default state if no type is recognized', () => {
     expect(rootReducer(defaultState, { type: null })).toEqual(defaultState);
   });
+
+  // test('Check that modified state of kegList matches rootReducer', () => {
+  //   action = {
+  //     type:
+  //   }
+  // });
 });

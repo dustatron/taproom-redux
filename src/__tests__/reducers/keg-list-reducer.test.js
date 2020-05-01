@@ -40,7 +40,7 @@ describe('kegListReducer', () => {
   test('Should successfully add new post data to kegList', () => {
     const { beer, brewery, price, aContent, pints, id, createAt } = kegData;
     const action = {
-      type: a.ADD_KEY,
+      type: a.ADD_KEG,
       beer,
       brewery,
       price,
@@ -64,7 +64,7 @@ describe('kegListReducer', () => {
   });
 
   test('Should remove keg from kegList', () => {
-    const action = { type: a.DELETE_KEY, id: 1 };
+    const action = { type: a.DELETE_KEG, id: 1 };
     const updatedState = {
       '2': {
         beer: 'Golden Girls Pale Ale',
