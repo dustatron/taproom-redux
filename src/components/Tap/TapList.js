@@ -21,6 +21,7 @@ function TapList(props) {
             pints={tap.pints}
             onMinusClick={props.onMinusPintClick}
             onShowBeerDetail={props.onDetailClick}
+            key={tap.id}
           />
         ))}
     </div>
