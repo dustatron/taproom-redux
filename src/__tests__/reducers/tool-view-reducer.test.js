@@ -13,4 +13,8 @@ describe('toolViewReducer', () => {
   test('Should update state to 1 on VIEW_KEY_DETAILS', () => {
     expect(toolViewReducer(0, { type: a.VIEW_KEY_DETAILS })).toEqual(1);
   });
+
+  test('Should update state to 2 on VIEW_KEY_EDIT', () => {
+    expect(toolViewReducer(0, { type: a.VIEW_KEY_EDIT })).toEqual(2);
+  });
 });
