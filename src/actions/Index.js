@@ -1,14 +1,14 @@
 import * as a from './ActionTypes';
 // ------------ keg-list-reducer -------------
 export const addKeg = (keg) => {
-  const { beer, brewery, price, aContent, prints, id, createAt } = keg;
+  const { beer, brewery, price, aContent, pints, id, createAt } = keg;
   return {
     type: a.ADD_KEG,
     beer,
     brewery,
     price,
     aContent,
-    prints,
+    pints,
     id,
     createAt
   };
@@ -26,14 +26,14 @@ export const sellPint = (id) => ({
 
 // ------------- selected-list-reducer -----------
 export const changeSelected = (keg) => {
-  const { beer, brewery, price, aContent, prints, id, createAt } = keg;
+  const { beer, brewery, price, aContent, pints, id, createAt } = keg;
   return {
     type: a.CHANGE_SELECTED,
     beer,
     brewery,
     price,
     aContent,
-    prints,
+    pints,
     id,
     createAt
   };
