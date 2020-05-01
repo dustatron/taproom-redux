@@ -21,6 +21,11 @@ export default (state = {}, action) => {
       const deleteFromState = { ...state };
       delete deleteFromState[id];
       return deleteFromState;
+
+    case a.SELL_PINT:
+      const pintCountMinusOne = (state[id].pints -= 1);
+      const newPintState = { ...state, [id]: { ...state[id], pints: pintCountMinusOne } };
+      return newPintState;
     default:
       return state;
   }

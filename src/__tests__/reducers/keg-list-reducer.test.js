@@ -62,10 +62,41 @@ describe('kegListReducer', () => {
       }
     });
   });
+
   test('Should remove keg from kegList', () => {
     const action = { type: a.DELETE_KEY, id: 1 };
     const updatedState = {
       '2': {
+        beer: 'Golden Girls Pale Ale',
+        brewery: 'St. Olaf Brewery',
+        price: 10,
+        aContent: 2,
+        pints: 124,
+        id: '2',
+        createAt: 1587762424204
+      }
+    };
+
+    expect(kegListReducer(currentState, action)).toEqual(updatedState);
+  });
+
+  test('Should update pints count of a single keg in kegList', () => {
+    const action = {
+      type: a.SELL_PINT,
+      id: 1
+    };
+
+    const updatedState = {
+      [1]: {
+        beer: "Real DeadMan's Ale",
+        brewery: 'Pelican Brewery',
+        price: 7,
+        aContent: 7,
+        pints: 10,
+        id: '1',
+        createAt: 1587762429777
+      },
+      [2]: {
         beer: 'Golden Girls Pale Ale',
         brewery: 'St. Olaf Brewery',
         price: 10,
