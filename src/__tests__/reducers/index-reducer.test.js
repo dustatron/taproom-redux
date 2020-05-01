@@ -19,12 +19,21 @@ describe('rootReducer', () => {
     toolView: 0
   };
   test('Should return default state if no type is recognized', () => {
-    expect(rootReducer(defaultState, { type: null })).toEqual(defaultState);
+    expect(rootReducer(undefined, { type: null })).toEqual(defaultState);
   });
 
-  // test('Check that modified state of kegList matches rootReducer', () => {
-  //   action = {
-  //     type:
-  //   }
-  // });
+  test('Check that modified state of kegList matches rootReducer', () => {
+    action = {
+      type: a.ADD_KEG,
+      beer: "Dirty Dan's Pale Ale",
+      brewery: 'Mnt Brewery',
+      price: 3,
+      aContent: 9,
+      pints: 4,
+      id: '1',
+      createAt: 1587762467285
+    };
+    store.dispatch(action);
+    expect(store.getState().kegList).toEqual(kegListReducer(undefined, action));
+  });
 });
