@@ -58,11 +58,16 @@ describe('rootReducer', () => {
   });
 
   // show-modal-reducer
-  test('Check that modified state of showModal matches rootState', () => {
+  test('Check that modified state of showModal matches rootReducer', () => {
     action = { type: a.TOGGLE_MODAL };
     store.dispatch(action);
     expect(store.getState().showModal).toEqual(showModalReducer(false, action));
   });
 
   // tool-view-reducer
+  test('Check that modified state of toolView matches rootReducer', () => {
+    action = { type: a.VIEW_KEG_DETAILS };
+    store.dispatch(action);
+    expect(store.getState().toolView).toEqual(toolViewReducer(0, action));
+  });
 });

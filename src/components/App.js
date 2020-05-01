@@ -8,7 +8,6 @@ import DeleteConfirm from './Keg/DeleteConfirm';
 //bootstrap styling
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import StarterKegs from './StarterKegs';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,8 +15,7 @@ class App extends React.Component {
     this.state = {
       showModel: null,
       currentKeg: {},
-      toolView: 0,
-      kegs: StarterKegs
+      toolView: 0
     };
   }
 

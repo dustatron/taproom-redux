@@ -10,7 +10,6 @@ export default (state = {}, action) => {
         brewery,
         price,
         aContent,
-        price,
         pints,
         id,
         createAt
