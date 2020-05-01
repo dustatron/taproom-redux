@@ -1,2 +1,4 @@
 import * as a from '../actions/ActionTypes';
-export default (state = false, action) => {};
+export default (state = 0, action) => {
+  return state;
+};
