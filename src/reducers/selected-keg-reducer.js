@@ -1,3 +1,22 @@
+import * as a from '../actions/ActionTypes';
+
 export default (state = {}, action) => {
-  return state;
+  const { beer, brewery, price, aContent, pints, id, createAt } = action;
+
+  switch (action.type) {
+    case a.CHANGE_SELECTED:
+      const newState = {
+        beer,
+        brewery,
+        price,
+        aContent,
+        price,
+        pints,
+        id,
+        createAt
+      };
+      return newState;
+    default:
+      return state;
+  }
 };
