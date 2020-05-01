@@ -9,4 +9,8 @@ describe('showModal', () => {
   it('Should togggle state from false to true', () => {
     expect(showModal(false, { type: a.TOGGLE_MODAL })).toEqual(true);
   });
+
+  it('Should togggle state from true to false', () => {
+    expect(showModal(true, { type: a.TOGGLE_MODAL })).toEqual(false);
+  });
 });
