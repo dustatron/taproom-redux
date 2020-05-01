@@ -5,7 +5,7 @@ import KegAdd from './Keg/KegAdd';
 import KegDetails from './Keg/KegDetails';
 import KegEdit from './Keg/KegEdit';
 import DeleteConfirm from './Keg/DeleteConfirm';
-import * as actions from '../actions';
+import * as a from '../actions';
 
 //redux
 import { connect } from 'react-redux';
@@ -23,45 +23,46 @@ function App(props) {
   //------------ change tool view -------- //
   //////////////////////////////////////////
   const handleViewKegAdd = () => {
-    dispatch(actions.viewKegAdd());
+    dispatch(a.viewKegAdd());
   };
 
   const handleViewKegDetails = (id) => {
     const selectKeg = props.kegList[id];
-    dispatch(actions.viewKegDetails(id));
-    dispatch(actions.changeSelected(selectKeg));
+    dispatch(a.viewKegDetails(id));
+    dispatch(a.changeSelected(selectKeg));
   };
 
   const handleViewKegEdit = (id) => {
-    dispatch(actions.viewKegEdit(id));
+    dispatch(a.viewKegEdit(id));
   };
-  //////////////////////////////////////
-  //------------ Keg Actions -------- //
-  //////////////////////////////////////
+  /////////////////////////////////////////////
+  //------------ Keg CRUD methods -------- //
+  //////////////////////////////////////////
   const handleSellPint = (id) => {
-    dispatch(actions.sellPint(id));
+    dispatch(a.sellPint(id));
   };
 
   const handleAddKeg = (newKeg) => {
-    dispatch(actions.addKeg(newKeg));
+    dispatch(a.addKeg(newKeg));
   };
 
   const handleEditKeg = (updatedKeg) => {
-    dispatch(actions.addKeg(updatedKeg));
+    dispatch(a.addKeg(updatedKeg));
   };
 
   const handleDeleteKeg = () => {
-    dispatch(actions.deleteKeg(props.selectedKeg.id));
-    dispatch(actions.viewKegAdd());
+    dispatch(a.deleteKeg(props.selectedKeg.id));
+    dispatch(a.viewKegAdd());
   };
 
+  // --- delete confirmation
   const toggleModal = () => {
-    dispatch(actions.toggleModal());
+    dispatch(a.toggleModal());
   };
 
   //////////////////////////////////////////////////
   //------------ checking tool view state ------ //
-  // ----------- and render tool state -------- //
+  // ----------- render  view tool state ------ //
   ///////////////////////////////////////////////
 
   let toolView;
